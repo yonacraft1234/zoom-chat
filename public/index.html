@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join a Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Join a Video Chat Room</h1>
+        <form id="joinForm">
+            <input type="text" id="username" placeholder="Enter your username" required>
+            <input type="text" id="room" placeholder="Enter room name" required>
+            <button type="submit">Join Room</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('joinForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const room = document.getElementById('room').value;
+            if (username && room) {
+                window.location.href = `/room.html?username=${encodeURIComponent(username)}&room=${encodeURIComponent(room)}`;
+            }
+        });
+    </script>
+</body>
+</html>
